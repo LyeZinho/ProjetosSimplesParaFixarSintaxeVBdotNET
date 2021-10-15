@@ -5,18 +5,22 @@ Module Program
     Sub Main(args As String())
         Console.ForegroundColor = ConsoleColor.Red
 
+        Console.Clear()
         Console.WriteLine("Tabuada do 5")
         CalcsAndProgram.Tabuada5()
         Console.ReadKey()
 
+        Console.Clear()
         Console.WriteLine("Tabuada")
         CalcsAndProgram.TabuadaV2()
         Console.ReadKey()
 
+        Console.Clear()
         Console.WriteLine("~Tabela ascii de 33 a 126")
         CalcsAndProgram.Ascii()
         Console.ReadKey()
 
+        Console.Clear()
         Console.WriteLine("Numero de divisores")
         CalcsAndProgram.Divisores()
         Console.ReadKey()
@@ -26,7 +30,7 @@ End Module
 
 Module CalcsAndProgram
 
-    'Tabuada x5
+    'Tabuada do numero 5
     Sub Tabuada5()
         Dim calc As Integer
 
@@ -37,7 +41,9 @@ Module CalcsAndProgram
 
     End Sub
 
-    'Tabuada + Input
+
+
+    'Tabuada com imput do usuario
     Sub TabuadaV2()
 
         Dim InputStr As String
@@ -64,7 +70,9 @@ Module CalcsAndProgram
 
     End Sub
 
-    'Ascii
+
+
+    'Função para ver sobre a tabela ascii
     Sub Ascii()
 
         Dim InputStr As String
@@ -112,6 +120,9 @@ Module CalcsAndProgram
 
     End Sub
 
+
+
+    'Função para descobrir o Numero de divisores!
     Sub Divisores()
         Dim resto As Double
         Dim InputStr As String
@@ -134,10 +145,11 @@ Module CalcsAndProgram
             resto = InputInt Mod 2
             InputInt = InputInt / 2
             Console.WriteLine(InputInt.ToString + "/ 2 = " + InputInt.ToString)
-            Console.WriteLine(_inputSave.ToString + " possui " + NumDivisores.ToString + " divisor/divisores")
             NumDivisores = NumDivisores + 1
             If Not resto = 0 Then Exit Do
         Loop
+
+        Console.WriteLine(_inputSave.ToString + " possui " + NumDivisores.ToString + " divisor/divisores")
     End Sub
 
 End Module
