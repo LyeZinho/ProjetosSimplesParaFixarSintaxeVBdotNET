@@ -5,15 +5,19 @@ Module Program
     Sub Main(args As String())
         Console.ForegroundColor = ConsoleColor.Red
 
+        Console.WriteLine("Tabuada do 5")
         CalcsAndProgram.Tabuada5()
         Console.ReadKey()
 
+        Console.WriteLine("Tabuada")
         CalcsAndProgram.TabuadaV2()
         Console.ReadKey()
 
+        Console.WriteLine("~Tabela ascii de 33 a 126")
         CalcsAndProgram.Ascii()
         Console.ReadKey()
 
+        Console.WriteLine("Numero de divisores")
         CalcsAndProgram.Divisores()
         Console.ReadKey()
 
@@ -87,20 +91,22 @@ Module CalcsAndProgram
         Next
 
         Do
-            Console.WriteLine("Digite um numero")
-            InputStr = Console.ReadLine()
-            Try
-                InputInt = Convert.ToInt32(InputStr)
-            Catch ex As Exception
-                Console.WriteLine("Digite um numero valido")
-            End Try
-            If Not InputInt = 0 Then Exit Do
-        Loop
+            Do
+                Console.WriteLine("Digite um numero para decobrir seu caracter correspondente")
+                InputStr = Console.ReadLine()
+                Try
+                    InputInt = Convert.ToInt32(InputStr)
+                Catch ex As Exception
+                    Console.WriteLine("Digite um numero valido")
+                End Try
+                If Not InputInt = 0 Then Exit Do
+            Loop
 
-        If InputInt > 126 Or InputInt < 33 Then
-            InputInt = 33
-            Console.WriteLine("Apenas entre 33~126")
-        End If
+            If InputInt > 126 Or InputInt < 33 Then
+                Console.WriteLine("Apenas entre 33~126")
+            End If
+            If InputInt > 32 And InputInt < 127 Then Exit Do
+        Loop
 
         Console.WriteLine("Caracter: " + Chr(InputInt) + "  Valor ascii:" + InputInt.ToString)
 
@@ -128,7 +134,7 @@ Module CalcsAndProgram
             resto = InputInt Mod 2
             InputInt = InputInt / 2
             Console.WriteLine(InputInt.ToString + "/ 2 = " + InputInt.ToString)
-            Console.WriteLine(_inputSave.ToString + " possui " + NumDivisores.ToString + " divisores ")
+            Console.WriteLine(_inputSave.ToString + " possui " + NumDivisores.ToString + " divisor/divisores")
             NumDivisores = NumDivisores + 1
             If Not resto = 0 Then Exit Do
         Loop
